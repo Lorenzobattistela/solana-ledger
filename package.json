@@ -1,11 +1,11 @@
 {
-  "name": "neo-ledger",
+  "name": "solana-ledger",
   "version": "1.0.0",
-  "description": "Ledger connector for neo blockchain",
+  "description": "Ledger connector for solana blockchain",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/YOUR_GITHUB_USER_NAME/neo-ledger",
+  "repository": "https://github.com/YOUR_GITHUB_USER_NAME/solana-ledger",
   "license": "MIT",
   "keywords": [],
   "scripts": {
@@ -42,7 +42,10 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@bitauth/libauth": "^1.17.1"
+    "@bitauth/libauth": "^1.17.1",
+    "@ledgerhq/hw-app-solana": "^7.0.13",
+    "@ledgerhq/hw-transport-node-hid": "^6.27.21",
+    "@solana/web3.js": "^1.87.0"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",

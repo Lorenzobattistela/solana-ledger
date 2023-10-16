@@ -1,3 +1,3 @@
-# neo-ledger
+# Solana
 
-Ledger connector for neo blockchain
+Ledger connector for solana blockchain
