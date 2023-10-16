@@ -15,7 +15,7 @@ function waiter(duration: number): Promise<void> {
 
 export class LedgerSigner implements solana.Signer {
     publicKey: solana.PublicKey;
-    privateKey: Uint8Array;
+    secretKey: Uint8Array;
     readonly path: string;
     readonly _solana: Promise<Solana>;
     provider: Connection;
@@ -74,8 +74,14 @@ export class LedgerSigner implements solana.Signer {
             message = new TextEncoder().encode(message);
         }
 
-        const msgHex = Buffer.from(message).toString("hex");
-        
+        const msgHex : Buffer = Buffer.from(message);
 
+        const sig = await this._retry((solana) => solana.signOffchainMessage(this.path, msgHex));
+        const hexSig = sig.signature.toString('hex');
+        return hexSig;
+    }
+
+    connect(provider: Connection): LedgerSigner{
+        return new LedgerSigner(provider, this.path);
     }
 }
